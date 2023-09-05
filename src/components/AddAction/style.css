@@ -1,0 +1,79 @@
+.add__form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.income .add__form input,
+.income .add__category {
+  border-color: #558052;
+}
+.expense .add__form input,
+.expense .add__category {
+  border-color: #8E1010;
+}
+
+.add__form input,
+.add__category {
+  font-size: 24px;
+  font-weight: 200;
+  padding: 11px 12px;
+  border-radius: 5px;
+  border: 1px solid ;
+  background: #fff;
+  max-width: 420px;
+  outline: none;
+  margin-top: 10px;
+}
+.add__category {
+  max-width: none;
+  width: 446px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+.form__select {
+  width: 446px;
+  position: relative;
+}
+option {
+  font-size: 16px;
+}
+.form__select::before {
+  content: "";
+  background-image: url("https://img.icons8.com/material-two-tone/2x/arrow.png");
+  background-size: cover;
+  width: 20px;
+  transform: rotate(90deg);
+  height: 20px;
+  position: absolute;
+  top: 26px;
+  right: 10px;
+  z-index: 100;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.add__submit {
+  width: 446px;
+  margin-top: 15px;
+  text-align: end;
+}
+.expense .add__btn{
+  background: #8E1010;
+}
+.income .add__btn{
+  background: #558052;
+}
+.add__btn{
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px 0px;
+  font-size: 22px;
+  color: white;
+  border: none;
+}
