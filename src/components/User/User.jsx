@@ -5,15 +5,21 @@ import { FaDollarSign } from "react-icons/fa";
 import { FaRubleSign } from "react-icons/fa";
 import { FaTenge } from "react-icons/fa";
 import { FaEuroSign } from "react-icons/fa";
-
+import { AiOutlineArrowUp } from "react-icons/ai";
 function User({ listExpense, listIncome }) {
   const username = useSelector((state) => state.username);
   const handeleDelete = (event) => {
     event.preventDefault();
     console.log("Dele");
   };
-  const handeleCol = (event) => {
-    const item = document.querySelector(`.${event.target.id}`);
+  const handeleColExpense = (event) => {
+    event.preventDefault();
+    const item = document.querySelector(`.expense__categories`);
+    item.classList.toggle("active");
+  };
+  const handeleColIncome = (event) => {
+    event.preventDefault();
+    const item = document.querySelector(`.income__categories`);
     item.classList.toggle("active");
   };
   const handeleAdd = (event) => {
@@ -23,7 +29,7 @@ function User({ listExpense, listIncome }) {
     <div className="user__base">
       <div className="user__logo">Some logo</div>
       <div className="user__info">
-        <div className="user__username">{username}</div>
+        <div className="user__username">Username: {username}</div>
         <div className="user__currency">
           Currency:
           <select
@@ -48,12 +54,8 @@ function User({ listExpense, listIncome }) {
                 <div className="category__add" onClick={handeleAdd}>
                   Add
                 </div>
-                <div
-                  className="collaps__categories"
-                  id="income__categories"
-                  onClick={handeleCol}
-                >
-                  Col
+                <div className="collaps__categories" onClick={handeleColIncome}>
+                  <AiOutlineArrowUp className="collaps__icon" />
                 </div>
               </div>
             </div>
@@ -81,10 +83,9 @@ function User({ listExpense, listIncome }) {
                 </div>
                 <div
                   className="collaps__categories"
-                  id="expense__categories"
-                  onClick={handeleCol}
+                  onClick={handeleColExpense}
                 >
-                  Col
+                  <AiOutlineArrowUp className="collaps__icon" />
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../style/LoginPage.css";
+import LoginLogo from "../images/login__img.png";
 import Login from "../layouts/Auth/Login";
 import Registration from "../layouts/Auth/Registration";
 function LoginPage() {
@@ -10,6 +11,9 @@ function LoginPage() {
 
   const [isLoggedFalse, setIsLoggedFalse] = useState(false);
   const [isRegistrationFalse, setIsRegistrationFalse] = useState(false);
+
+  const [isHaveAcount, setIsHaveAcount] = useState(true);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const loginValue = event.target.auth_login.value;
@@ -79,15 +83,51 @@ function LoginPage() {
       console.error("Error sending POST request:", error);
     }
   };
-
+  const changeTab = (event) => {
+    if (!event.target.classList.contains("active")) {
+      const activeTab = document.querySelector(".login__tab.active");
+      activeTab.classList.remove("active");
+      event.target.classList.add("active");
+      if (event.target.classList.contains("login__registration")) {
+        setIsHaveAcount(false);
+      } else {
+        setIsHaveAcount(true);
+      }
+    }
+  };
   return (
     <div className="login__page">
-      <div className="login__border"></div>
-      <Login handleSubmit={handleSubmit} isLoggedFalse={isLoggedFalse}></Login>
-      <Registration
-        handleRegistration={handleRegistration}
-        isRegistrationFalse={isRegistrationFalse}
-      ></Registration>
+      <div className="login__left">
+        <img src={LoginLogo} alt="" />
+      </div>
+      <div className="login__layout">
+        <div className="login__title">
+          <div
+            className="login__login login__tab active"
+            onClick={changeTab}
+          >
+            Авторизация
+          </div>
+          <div
+            className="login__registration login__tab"
+            onClick={changeTab}
+          >
+            Registration
+          </div>
+        </div>
+
+        {isHaveAcount ? (
+          <Login
+            handleSubmit={handleSubmit}
+            isLoggedFalse={isLoggedFalse}
+          ></Login>
+        ) : (
+          <Registration
+            handleRegistration={handleRegistration}
+            isRegistrationFalse={isRegistrationFalse}
+          ></Registration>
+        )}
+      </div>
     </div>
   );
 }

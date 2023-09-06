@@ -1,21 +1,25 @@
 .login__page {
-  position: absolute;
+  display: flex;
+  height: 100vh;
+}
+.login__left {
+  width: 50%;
+  height: 100%;
+  /* background-image: url("../images/login__img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+.login__left img {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: 10000;
-}
-.login__border {
-  width: 100%;
-  height: 40px;
-  background-color: #000;
 }
 .login__layout {
-  margin-top: 30px;
+  width: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e1e1e;
 }
 .login__block {
   width: 24%;
@@ -23,32 +27,61 @@
 }
 .login__title {
   text-align: center;
-  background-color: #000;
-  padding: 25px 0px;
-  color: #fff;
+  padding: 0px;
+  padding-bottom: 15px;
+  color: #fffde7;
   text-transform: uppercase;
   font-size: 24px;
-  border-radius: 20px 20px 4px 4px;
+  margin-top: 40%;
+  display: flex;
+}
+.login__login {
+  margin-right: 20px;
+}
+.login__registration {
+  margin-left: 20px;
+}
+.login__tab {
+  cursor: pointer;
+  position: relative;
+}
+.login__tab::after {
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  z-index: 100;
+  width: 0px;
+  height: 1px;
+  background-color: #fffde7;
+  transition: 0.3s linear;
+}
+.active.login__tab::after {
+  width: calc(100% + 10px);
 }
 .login__form {
-  padding: 20px 20px;
   padding-bottom: 30px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   text-align: center;
 }
 .login__page input {
   outline: none;
   margin: 0;
-  margin-top: 5px;
-  border: 1px solid #d0d0d0;
-  width: calc(100% - 10px);
+  margin-top: 15px;
+  font-size: 20px;
+  background-color: #fffde7;
+  width: calc(100% - 14px);
+  border-radius: 5px;
   padding: 15px 0px;
   padding-left: 10px;
 }
+.form__login {
+}
+
 .form__btn {
   /* text-align: end; */
   /* margin-right: 10%; */
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -84,4 +117,4 @@
 .form__btn button:active {
   transform: scale(1.1);
   transition: 0.3s all linear;
-} 
+}

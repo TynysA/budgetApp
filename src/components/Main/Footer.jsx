@@ -4,7 +4,7 @@ import "../../style/components/Blocks.css";
 function Footer() {
   return (
     <div className="footer">
-        Footer
+        {/* Footer */}
     </div>
   );
 }
