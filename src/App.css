@@ -1,7 +1,23 @@
-.App {
-
+input,
+label,
+select {
+  vertical-align: middle;
 }
-.none{
+textarea {
+  vertical-align: top;
+}
+button {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+* {
+  box-sizing: border-box;
+}
+.none {
   display: none !important;
 }
 .main__layout {
@@ -9,10 +25,10 @@
   background: linear-gradient(#ffff, #d9effa);
 }
 
-.main{
+.main {
   margin-top: 30px;
   display: flex;
-
+  justify-content: space-between;
 }
 .container {
   width: 80%;

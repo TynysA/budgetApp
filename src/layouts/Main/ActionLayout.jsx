@@ -3,7 +3,7 @@ import AddAction from "../../components/AddAction/AddIncome";
 import "../../style/Home.css";
 import AddIncome from "../../components/AddAction/AddIncome";
 import AddExpense from "../../components/AddAction/AddExpense";
-function ActionLayout({ handleSubmit }) {
+function ActionLayout() {
   const [actionType, setActionType] = useState(true);
   const chooseExpense = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ function ActionLayout({ handleSubmit }) {
     active.classList.remove("tab__active");
     e.target.classList.add("tab__active");
   };
-  
+
   return (
     <div className="actions">
       <div className="action__type">
@@ -24,9 +24,9 @@ function ActionLayout({ handleSubmit }) {
         </button>
       </div>
       {actionType ? (
-        <AddIncome handleSubmit={handleSubmit} type={"income"} />
+        <AddIncome type={"income"} />
       ) : (
-        <AddExpense handleSubmit={handleSubmit} type={"expense"} />
+        <AddExpense type={"expense"} />
       )}
     </div>
   );

@@ -1,16 +1,15 @@
 import ListItem from "../../components/ListItem/ListItem";
 import "../../style/Home.css";
-function ListLayout({ list, deleteAction }) {
-  console.log(list);
+function ListLayout({ list, handeleUploadItem }) {
   return (
-    <div className="list__actions">
+    <div className="list__movements">
       <div className="list__title">LIST OF MOVEMENTS</div>
       <div className="list__map">
         {list.map((data, index) => (
           <ListItem
             key={index}
             item={data}
-            deleteAction={deleteAction}
+            handeleUploadItem={handeleUploadItem}
           ></ListItem>
         ))}
       </div>

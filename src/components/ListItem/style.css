@@ -14,12 +14,12 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  margin-top: 16px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
   background: #fff;
-  padding: 13px 19px;
+  padding: 11px 19px;
   font-style: normal;
   line-height: normal;
   max-width: 570px;
@@ -27,6 +27,7 @@
 .list__left,
 .list__right {
   display: flex;
+  align-items: center;
 }
 .list__category,
 .list__amount {
@@ -34,8 +35,8 @@
 }
 .list__category {
   color: #3e3e3e;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
 }
 .list__date {
   color: #a6a2a2;
@@ -49,28 +50,46 @@
   right: 0px;
   transition: 0.4s linear;
 }
-
-.list__delete {
+.list__actions {
   visibility: hidden;
-  cursor: pointer;
-  position: absolute;
   border-radius: 0px 4px 4px 0px;
-  background: #8e1010;
-  padding: 0px 11px;
-  height: 100%;
-  right: -20px;
+  position: absolute;
+  right: -100px;
   top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: 0.4s linear;
+}
+.list__actions button {
+  height: 100%;
+  z-index: 100;
   display: flex;
   border: none;
   justify-content: center;
   align-items: center;
+  padding: 0px 11px;
   color: white;
-  transition: 0.4s linear;
+  cursor: pointer;
+  transition: 1.8 linear;
 }
-.list__item:hover .list__delete {
+.list__delete {
+  background: #8e1010;
+}
+.list__open {
+  background: #558052;
+}
+.list__actions svg {
+  font-size: 18px;
+}
+.list__item:hover .list__actions {
   visibility: visible;
   right: 0px;
 }
+/* .list__item:hover .list__actions button {
+  visibility: visible;
+  right: 0px;
+} */
 .list__item:hover .list__amount {
-  right: 40px;
+  right: 80px;
 }

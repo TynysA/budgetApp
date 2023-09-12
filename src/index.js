@@ -7,8 +7,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 const defaultState = {
   isLoggedIn: false,
-  username: "2",
   balance: 0,
+  avatar: "",
+  incomeCategories: [],
+  expenseCategories: [],
 };
 
 const reducer = (state = defaultState, action) => {
@@ -17,10 +19,18 @@ const reducer = (state = defaultState, action) => {
       return { ...state, isLoggedIn: true };
     case "LogOut":
       return { ...state, isLoggedIn: false };
-    case "SaveUserName":
-      return { ...state, username: action.payload.username };
     case "AddBalance":
       return { ...state, balance: state.balance + action.payload };
+    case "ResetBalance":
+      return { ...state, balance: 0 };
+    case "SaveLogo":
+      return { ...state, avatar: action.payload };
+    case "DeleteLogo":
+      return { ...state, avatar: "" };
+    case "SaveIncome":
+      return { ...state, incomeCategories: action.payload };
+    case "SaveExpense":
+      return { ...state, expenseCategories: action.payload };
     default:
       return state;
   }

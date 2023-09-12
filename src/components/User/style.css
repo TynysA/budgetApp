@@ -8,10 +8,41 @@
   height: 200px;
   background-color: #558052;
   color: white;
+  border-radius: 155px;
+  position: relative;
+  cursor: pointer;
 }
 .user__logo img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 155px;
+}
+.user__logo .change__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 155px;
+  justify-content: center;
+  background-color: rgba(85, 128, 82, 0.7);
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  /* display: none; */
+}
+.user__logo:hover .change__logo {
+  opacity: 1;
+}
+.change__logo.active {
+  opacity: 1;
+}
+.logo__input {
+  display: none;
 }
 .user__info {
   width: calc(100% - 200px);
@@ -52,20 +83,27 @@ input::-webkit-inner-spin-button {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 11;
 }
 .category__list {
   display: flex;
   justify-content: space-between;
 }
 .category__block {
-  width: 50%;
+  width: 49%;
+  position: relative;
+}
+.category__border {
+  width: 2px;
+  height: 150px;
+  background-color: black;
 }
 .category__block:nth-child(1) {
-  border-right: 1px solid black;
-  padding-right: 10px;
+  padding-right: 15px;
 }
-.category__block:nth-child(2) {
-  padding-left: 10px;
+.category__block:nth-child(3) {
+  padding-left: 15px;
 }
 .user__category-title {
   font-size: 20px;
@@ -73,6 +111,8 @@ input::-webkit-inner-spin-button {
   font-weight: 600;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 15;
 }
 .user__category-action {
   display: flex;
@@ -90,7 +130,12 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s linear;
 }
+.collaps__categories.active {
+  transform: rotate(-180deg);
+}
+
 .collaps__icon {
   width: 100%;
   font-size: 22px;
@@ -110,4 +155,52 @@ input::-webkit-inner-spin-button {
 
 .income__categories .list__category {
   color: #558052;
+}
+.add-category {
+  position: absolute;
+  top: -100px;
+  left: 10px;
+  width: 90%;
+  background-color: #fff;
+  padding: 20px 20px;
+  border-radius: 5px;
+  z-index: 0;
+  transition: 0.5s linear;
+  visibility: hidden;
+}
+.add__expense-category {
+  border: 1px solid #8e1010;
+}
+.add__income-category {
+  border: 1px solid #558052;
+  left: -5px;
+}
+.add-category.active {
+  top: 30px;
+  visibility: visible;
+  z-index: 10;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.input__category {
+  width: calc(100% - 20px);
+  padding: 10px 0px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.input__category::placeholder {
+  font-weight: 600;
+  color: black;
+}
+
+.category-form button {
+  padding: 10px 5px;
+  width: 20%;
+  min-width: 140px;
+  font-size: 20px;
 }

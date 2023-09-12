@@ -32,13 +32,13 @@ function LoginPage() {
       });
 
       const data = await response.json();
-
+      console.log(data);
+      const username = data.user.username;
+      const avatar = data?.user?.avatar;
       if (data.token) {
         // setIsLoggedIn(true);
         dispatch({ type: "Login" });
-        dispatch({ type: "SaveUserName", payload: { username: loginValue } });
-        dispatch({ type: "SaveToken", payload: data.token });
-        localStorage.setItem("username", loginValue);
+        localStorage.setItem("username", username);
         localStorage.setItem("access_token", data.token);
         navigate("/");
       } else {
@@ -59,21 +59,23 @@ function LoginPage() {
       password: passwordValue, //"1234",
     };
     try {
-      const response = await fetch(`http://localhost:8000/auth/login`, {
+      const response = await fetch(`http://localhost:8000/auth/registration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataToSend),
       });
-
+      console.log(response);
       const data = await response.json();
-
+      console.log(data);
       if (data.token) {
         // setIsLoggedIn(true);
         dispatch({ type: "Login" });
-        navigate("/");
+        dispatch({ type: "SaveToken", payload: data.token });
         localStorage.setItem("access_token", data.token);
+        localStorage.setItem("username", loginValue);
+        navigate("/");
       } else {
         setIsLoggedFalse(true);
         // Handle incorrect credentials
@@ -102,16 +104,10 @@ function LoginPage() {
       </div>
       <div className="login__layout">
         <div className="login__title">
-          <div
-            className="login__login login__tab active"
-            onClick={changeTab}
-          >
+          <div className="login__login login__tab active" onClick={changeTab}>
             Авторизация
           </div>
-          <div
-            className="login__registration login__tab"
-            onClick={changeTab}
-          >
+          <div className="login__registration login__tab" onClick={changeTab}>
             Registration
           </div>
         </div>

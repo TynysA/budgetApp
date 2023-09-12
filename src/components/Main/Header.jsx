@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../style/components/Blocks.css";
+import { useDispatch } from "react-redux";
 function Header() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handeleLogout = () => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("username");
+    dispatch({ type: "ResetBalance" });
     navigate("/login");
   };
   return (

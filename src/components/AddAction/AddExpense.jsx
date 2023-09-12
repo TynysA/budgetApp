@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import axiosInstance from "../../api";
+import { useDispatch } from "react-redux";
 
-function AddExpense({ type, handleSubmit }) {
+function AddExpense({ type }) {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
@@ -17,32 +19,60 @@ function AddExpense({ type, handleSubmit }) {
   useEffect(() => {
     handeleCategory();
   }, []);
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log(event.target.title.value);
-  //   const res = await axiosInstance.post(`/${type}/add`, {
-  //     title: title,
-  //     amount: amount,
-  //     category: category,
-  //     description: description,
-  //   });
-  //   console.log(res);
-  // };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const res = await axiosInstance.post(`/${type}/add`, {
+      title: title,
+      amount: Number(amount),
+      category: category,
+      description: description,
+    });
+    console.log(res);
+    let tempAmount = amount;
+    if (type === "expense") {
+      tempAmount = -tempAmount;
+    }
+    dispatch({ type: "AddBalance", payload: Number(tempAmount) });
+    setAmount(0);
+    setDescription("");
+    setTitle("");
+    setCategory("");
+  };
   return (
     <div className={`add__inner ${type}`}>
       <form className={`add__form ${type}`} onSubmit={handleSubmit}>
-        <input name="type" type="text" hidden value={type} />
-        <input name="title" type="text" placeholder="Title" />
-        <input placeholder="Amount: 0$" type="number" name="amount" />
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          name="title"
+          type="text"
+          placeholder="Title"
+        />
+        <input
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Amount: 0$"
+          type="number"
+          name="amount"
+        />
         <div className="form__select">
-          <select className="add__category" name="category">
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="add__category"
+            name="category"
+          >
             <option value="">Chose Category</option>
-            {arrCategories.map((row) => (
-              <option value={row.value}>{row.value}</option>
+            {arrCategories.map((row,index) => (
+              <option key={index} value={row.value}>
+                {row.value}
+              </option>
             ))}
           </select>
         </div>
         <input
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
           className="add__description"
           type="text"

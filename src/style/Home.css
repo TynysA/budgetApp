@@ -1,5 +1,6 @@
 .actions {
-  width: 50%;
+  width: 40%;
+  min-width: 380px;
 }
 .action__type {
   display: flex;
@@ -17,8 +18,9 @@
   color: #fff;
   background-color: #558052;
 }
-.list__actions {
+.list__movements {
   width: 50%;
+  padding-left: 15px;
 }
 .list__map {
   max-height: 400px;
@@ -32,3 +34,4 @@
   line-height: normal;
   margin-bottom: 20px;
 }
+
