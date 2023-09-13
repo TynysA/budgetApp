@@ -21,7 +21,7 @@ function Login({ handleSubmit, isLoggedFalse }) {
           <div className={`error__text ${isLoggedFalse ? "active" : ""}`}>
             Неправильный логин или пароль
           </div>
-          <button type="submit">Вход</button>
+          <button className="standard" type="submit">Вход</button>
         </div>
       </form>
     </div>

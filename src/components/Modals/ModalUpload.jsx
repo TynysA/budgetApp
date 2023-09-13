@@ -6,29 +6,42 @@ import { AiOutlineClose } from "react-icons/ai";
 import "./style.css";
 import { useEffect, useState } from "react";
 
-function ModalUpload({ params, setModalUpload }) {
+function ModalUpload({ params, setModalUpload, setIsLoading }) {
   const dispatch = useDispatch();
-  console.log(params);
+  //console.log(params);
   const [title, setTitle] = useState(params?.title);
   const [amount, setAmount] = useState(params?.amount);
-  const [category, setCategory] = useState(params?.category);
+  const [category, setCategory] = useState(params?.category[0]);
   const [description, setDescription] = useState(params?.description);
   const [date, setDate] = useState(params?.date?.slice(0, 10));
   const [type, setType] = useState(params?.type);
   const [arrCategories, setArrCategories] = useState([]);
   const handeleCategory = async () => {
     const res = await axiosInstance.get(`/${type}/category/all`);
-    console.log("All categories");
-    console.log(res.data);
+    // console.log("All categories");
+    // console.log(res.data);
     setArrCategories(res.data);
   };
   useEffect(() => {
     handeleCategory();
   }, []);
-  console.log(params);
   const closeModal = () => {
-    console.log("Close");
     setModalUpload(false);
+  };
+  const handeleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    const res = await axiosInstance.post(`/${type}/edit`, {
+      title: title,
+      amount: Number(amount),
+      category: category,
+      date: date,
+      description: description,
+      actionId: params?._id,
+    });
+    dispatch({ type: "ResetBalance" });
+    setModalUpload(false);
+    setIsLoading(false);
   };
   useEffect(() => {}, []);
   return (
@@ -39,7 +52,7 @@ function ModalUpload({ params, setModalUpload }) {
         </div>
         <div className="modal__title">Info</div>
         <div className="modal__item">
-          <form className="params__form" action="">
+          <form className="params__form" action="" onSubmit={handeleSubmit}>
             <div className="params__block">
               <input
                 type="text"
@@ -51,14 +64,14 @@ function ModalUpload({ params, setModalUpload }) {
               <input
                 type="number"
                 value={amount}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => setAmount(e.target.value)}
               />
             </div>
             <div className="params__block param__category">
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="add__category"
+                className="upload__select"
                 name="category"
               >
                 <option value="">Chose Category</option>
@@ -84,7 +97,7 @@ function ModalUpload({ params, setModalUpload }) {
               />
             </div>
             <div className="params__block params__submit">
-              <button type="submit">Update</button>
+              <button className="standard" type="submit">Update</button>
             </div>
           </form>
         </div>

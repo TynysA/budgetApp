@@ -21,6 +21,8 @@ const reducer = (state = defaultState, action) => {
       return { ...state, isLoggedIn: false };
     case "AddBalance":
       return { ...state, balance: state.balance + action.payload };
+    case "NewBalance":
+      return { ...state, balance: action.payload };
     case "ResetBalance":
       return { ...state, balance: 0 };
     case "SaveLogo":

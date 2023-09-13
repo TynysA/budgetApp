@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "../../api";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsPencilFill } from "react-icons/bs";
@@ -29,7 +29,7 @@ function ListItem({ item, handeleUploadItem }) {
     const datetemp = new Date(item.date);
     const date = datetemp.toLocaleDateString("en-US", options);
     setDate(date);
-  }, []);
+  }, [item.date]);
   return (
     <div id={item._id} className={`list__item ${item.type}`}>
       <div className="list__left">

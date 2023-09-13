@@ -8,15 +8,12 @@ import { FaEuroSign } from "react-icons/fa";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { BsFillImageFill } from "react-icons/bs";
 import axiosInstance from "../../api";
+import UserCategory from "./UserCategory";
 function User({ setReset, propsHandele }) {
   const username = localStorage.getItem("username");
   const [avatar, setAvatar] = useState("");
   const [user, setUser] = useState([]);
   const fileInputRef = useRef(null);
-  const handeleDelete = (event) => {
-    event.preventDefault();
-    console.log("Dele");
-  };
   const handleImageChange = (event) => {
     const selectedImage = event.target.files && event.target.files[0];
     console.log(selectedImage);
@@ -139,21 +136,12 @@ function User({ setReset, propsHandele }) {
                   placeholder="Type income category"
                   name="__category"
                 />
-                <button type="submit">Save</button>
+                <button className="standard" type="submit">Save</button>
               </form>
             </div>
             <div className="list__categories income__categories">
               {propsHandele?.listIncome.map((row, index) => (
-                <div key={index} className={`list__item income`}>
-                  <div className="list__left">
-                    <div className="list__category">{row.value}</div>
-                  </div>
-                  <div className="list__right none">
-                    <button className="list__delete" onClick={handeleDelete}>
-                      <FaTrashAlt />
-                    </button>
-                  </div>
-                </div>
+                <UserCategory key={index} row={row} type="income" />
               ))}
             </div>
           </div>
@@ -190,21 +178,12 @@ function User({ setReset, propsHandele }) {
                   placeholder="Type expense category"
                   name="__category"
                 />
-                <button type="submit">Save</button>
+                <button className="standard" type="submit">Save</button>
               </form>
             </div>
             <div className="list__categories expense__categories">
               {propsHandele?.listExpense.map((row, index) => (
-                <div key={index} className={`list__item expense`}>
-                  <div className="list__left">
-                    <div className="list__category">{row.value}</div>
-                  </div>
-                  <div className="list__right none">
-                    <button className="list__delete" onClick={handeleDelete}>
-                      <FaTrashAlt />
-                    </button>
-                  </div>
-                </div>
+                <UserCategory key={index} row={row} type="expense" />
               ))}
             </div>
           </div>

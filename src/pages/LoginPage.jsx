@@ -32,7 +32,6 @@ function LoginPage() {
       });
 
       const data = await response.json();
-      console.log(data);
       const username = data.user.username;
       const avatar = data?.user?.avatar;
       if (data.token) {

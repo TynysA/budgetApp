@@ -41,42 +41,48 @@
   width: 100%;
   margin-top: 10px;
 }
-.param__category {
-  margin-top: 0px;
-}
-.params__form input {
+.params__form input,
+.params__form textarea,
+.upload__select {
   width: 100%;
   font-size: 22px;
+  padding: 15px 5px 15px 20px;
   border: 1px solid black;
   border-radius: 5px;
-  padding: 15px 5px 15px 20px;
 }
 .params__form textarea {
   resize: none;
-  width: 100%;
-  font-size: 22px;
-  padding: 15px 5px 15px 20px;
   min-height: 50px;
-  border: 1px solid black;
-  border-radius: 5px;
   margin-bottom: 10px;
 }
 .params__submit {
   text-align: end;
 }
-.params__submit button {
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 20px;
-  border-radius: 5px;
-  background-color: #afeeee;
-  border: none;
-  transition: all 0.3s linear;
-}
-.params__submit button:hover {
-  border-radius: 0px;
-  transform: translateY(-10px);
-}
+
 .add__category {
   /* margin-top: 0; */
+}
+.param__category {
+  position: relative;
+  width: 100%;
+}
+.param__category::before {
+  content: "";
+  background-image: url(https://img.icons8.com/material-two-tone/2x/arrow.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 22px;
+  transform: rotate(90deg);
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  z-index: 100;
+}
+.upload__select {
+  outline: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: relative;
 }

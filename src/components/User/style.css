@@ -159,8 +159,8 @@ input::-webkit-inner-spin-button {
 .add-category {
   position: absolute;
   top: -100px;
-  left: 10px;
-  width: 90%;
+  left: 15px;
+  width: 95%;
   background-color: #fff;
   padding: 20px 20px;
   border-radius: 5px;
@@ -173,7 +173,7 @@ input::-webkit-inner-spin-button {
 }
 .add__income-category {
   border: 1px solid #558052;
-  left: -5px;
+  left: -0px;
 }
 .add-category.active {
   top: 30px;
@@ -184,10 +184,10 @@ input::-webkit-inner-spin-button {
 .category-form {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 .input__category {
-  width: calc(100% - 20px);
+  width: 100%;
   padding: 10px 0px;
   padding-left: 10px;
   font-size: 20px;
@@ -196,11 +196,4 @@ input::-webkit-inner-spin-button {
 .input__category::placeholder {
   font-weight: 600;
   color: black;
-}
-
-.category-form button {
-  padding: 10px 5px;
-  width: 20%;
-  min-width: 140px;
-  font-size: 20px;
 }

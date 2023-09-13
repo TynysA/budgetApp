@@ -6,6 +6,7 @@ import Balance from "../components/Balance/Balance";
 import ActionLayout from "../layouts/Main/ActionLayout";
 import ListLayout from "../layouts/Main/ListLayout";
 import axiosInstance from "../api";
+import Footer from "../components/Main/Footer";
 
 function TestPage() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function TestPage() {
   const [params, setParams] = useState({});
   const [modalUpload, setModalUpload] = useState(false);
   async function handeleUploadItem(param) {
-    console.log(param);
+    //console.log(param);
     setParams(param);
     setModalUpload(true);
     // const modal__layout = document.querySelector(".modal__layout");
@@ -32,6 +33,7 @@ function TestPage() {
 
     const list = await axiosInstance.get("/budget/actions");
     setList(list.data.combinedData);
+    console.log(list.data.combinedData);
   }
   useEffect(() => {
     start();

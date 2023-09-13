@@ -86,10 +86,12 @@
   visibility: visible;
   right: 0px;
 }
-/* .list__item:hover .list__actions button {
-  visibility: visible;
-  right: 0px;
-} */
 .list__item:hover .list__amount {
   right: 80px;
+}
+
+@media (max-width: 1000px) {
+  .list__item {
+    max-width: none;
+  }
 }

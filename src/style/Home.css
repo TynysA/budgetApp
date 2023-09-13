@@ -1,6 +1,5 @@
 .actions {
-  width: 40%;
-  min-width: 380px;
+  width: 45%;
 }
 .action__type {
   display: flex;
@@ -35,3 +34,24 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 1150px) {
+  .list__movements {
+    width: 55%;
+  }
+  .actions {
+    width: 40%;
+  }
+}
+@media (max-width: 1000px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+  .list__movements {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .actions {
+    display: none;
+  }
+}
