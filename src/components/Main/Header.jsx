@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../style/components/Blocks.css";
 import { useDispatch } from "react-redux";
+import { GrLogout } from "react-icons/gr";
+import { CgProfile } from "react-icons/cg";
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -14,14 +16,16 @@ function Header() {
   return (
     <div className="header">
       <Link to={"/"} className="header__logo">
-        CasheFlow Composs
+        CasheFlow <span>Composs</span>
       </Link>
       <div className="header__actions">
-        <Link to={"/home"} className="header__action">
+        <Link to={"/home"} className="header__action ">
           My profile
+          <CgProfile />
         </Link>
         <div className="header__action" onClick={handeleLogout}>
-          Logout
+          <span>Logout</span>
+          <GrLogout />
         </div>
       </div>
     </div>

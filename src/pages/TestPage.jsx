@@ -33,7 +33,6 @@ function TestPage() {
 
     const list = await axiosInstance.get("/budget/actions");
     setList(list.data.combinedData);
-    console.log(list.data.combinedData);
   }
   useEffect(() => {
     start();

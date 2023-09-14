@@ -14,21 +14,29 @@
   min-width: 240px;
 }
 .header__actions {
-  width: 20%;
   min-width: 150px;
   display: flex;
   justify-content: space-between;
 }
 .header__action {
   text-align: end;
-  width: 50%;
+  width: 30%;
+  min-width: 90px;
   color: black;
   text-decoration: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
 }
-
-.footer {
-  padding: 20px 0px;
+.header__action svg {
+  margin-left: 0px;
+  font-size: 22px;
+}
+.header__actions a {
+  margin-right: 20px;
+  min-width: 115px;
 }
 .balance {
   font-style: normal;
@@ -60,18 +68,84 @@
   bottom: 0px;
   left: 0;
   background-color: #fff;
-  padding: 30px 50px;
+  padding: 15px 0px;
+}
+.footer__container {
+  width: 97%;
+  padding: 0 5px;
+  margin: 0 auto;
 }
 .footer__inner {
   position: relative;
-  /* display: flex;
-  justify-content: end; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__profile {
+  cursor: pointer;
+  font-size: 38px;
+  transition: 0.4 linear;
+  color: #3e3e3e;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+}
+.footer__profile span {
+  margin-left: 10px;
+  font-size: 22px;
+  text-transform: none;
 }
 .footer__plus {
+  margin-left: 10px;
   cursor: pointer;
   font-size: 38px;
   transition: 0.4s linear;
+  display: flex;
+  align-items: center;
 }
-.footer__plus:hover {
-  transform: translateY(-10px);
+.footer__plus span {
+  margin-right: 10px;
+  font-size: 22px;
+  text-transform: none;
+}
+@media (max-width: 600px) {
+  .header__actions {
+    justify-content: flex-end;
+    min-width: 1px;
+  }
+  .header__action {
+    justify-content: flex-end;
+    width: auto;
+    min-width: 1px;
+  }
+  .header__action span {
+    display: none;
+  }
+  .header__actions a {
+    display: none;
+  }
+  .footer {
+    display: block;
+  }
+}
+@media (max-width: 420px) {
+  .footer__profile,
+  .footer__plus {
+    margin: 0px;
+  }
+  .footer__profile span,
+  .footer__plus span {
+    display: none;
+  }
+}
+@media (max-width: 300px) {
+  .header__logo {
+    font-size: 20px;
+  }
+  .header__action svg {
+    margin-left: 0px;
+    width: auto;
+    font-size: 42px;
+  }
 }

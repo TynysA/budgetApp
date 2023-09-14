@@ -12,8 +12,6 @@ function AddIncome({ type }) {
   const [arrCategories, setArrCategories] = useState([]);
   const handeleCategory = async () => {
     const res = await axiosInstance.get(`/${type}/category/all`);
-    console.log("All categories");
-    console.log(res.data);
     setArrCategories(res.data);
   };
   useEffect(() => {

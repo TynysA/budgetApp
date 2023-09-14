@@ -9,10 +9,10 @@ function Balance({amount}) {
   return (
     <div className="balance">
       <div className="username">
-        Welcome, <span>{username}</span>
+        Welcome, <span>{username ? username : "Friend"}</span>
       </div>
       <div className="balance__title">BALANCE</div>
-      <div className="budget">{amount} $</div>
+      <div className="budget">{amount ? amount : 0} $</div>
     </div>
   );
 }

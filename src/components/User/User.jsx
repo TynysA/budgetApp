@@ -68,6 +68,15 @@ function User({ setReset, propsHandele }) {
       change.classList.remove("active");
     }
   }
+  const handeleChangeList = (event) => {
+    let some = event.target.parentNode.parentNode.parentNode;
+    some.classList.add("none");
+    some.classList.remove("active");
+    let type = event.target.id;
+    const ele = document.querySelector(`.category__block-${type}`);
+    ele.classList.remove("none");
+    ele.classList.add("active");
+  };
   useEffect(() => {
     start();
   }, [avatar]);
@@ -105,9 +114,18 @@ function User({ setReset, propsHandele }) {
         </div>
         <div className="user__category">List of user category</div>
         <div className="category__list">
-          <div className="category__block">
+          <div className="category__block category__block-income">
             <div className="user__category-title">
-              Income
+              <div className="title__actions">
+                <div>Incomes</div>
+                <div
+                  id="expense"
+                  className="title__action expense"
+                  onClick={handeleChangeList}
+                >
+                  Expenses
+                </div>
+              </div>
               <div className="user__category-action">
                 <div
                   id="add__income-category"
@@ -136,7 +154,9 @@ function User({ setReset, propsHandele }) {
                   placeholder="Type income category"
                   name="__category"
                 />
-                <button className="standard" type="submit">Save</button>
+                <button className="standard" type="submit">
+                  Save
+                </button>
               </form>
             </div>
             <div className="list__categories income__categories">
@@ -146,9 +166,18 @@ function User({ setReset, propsHandele }) {
             </div>
           </div>
           <div className="category__border"></div>
-          <div className="category__block">
+          <div className="category__block category__block-expense">
             <div className="user__category-title">
-              Expense
+              <div className="title__actions">
+                <div>Expenses</div>
+                <div
+                  id="income"
+                  className="title__action income"
+                  onClick={handeleChangeList}
+                >
+                  Incomes
+                </div>
+              </div>
               <div className="user__category-action">
                 <div
                   id="add__expense-category"
@@ -178,7 +207,9 @@ function User({ setReset, propsHandele }) {
                   placeholder="Type expense category"
                   name="__category"
                 />
-                <button className="standard" type="submit">Save</button>
+                <button className="standard" type="submit">
+                  Save
+                </button>
               </form>
             </div>
             <div className="list__categories expense__categories">

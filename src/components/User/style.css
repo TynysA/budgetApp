@@ -197,3 +197,66 @@ input::-webkit-inner-spin-button {
   font-weight: 600;
   color: black;
 }
+.title__action {
+  display: none;
+}
+@media (max-width: 500px) {
+  .user__logo {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+  .user__base {
+    flex-direction: column;
+  }
+  .user__username {
+    display: none;
+  }
+  .user__info {
+    width: 100%;
+  }
+  .category__list {
+    width: 100%;
+  }
+  .category__add {
+    margin-right: 8px;
+  }
+  .category__block:nth-child(1) {
+    width: 100%;
+    padding: 0px;
+  }
+  .category__block:nth-child(3) {
+    display: none;
+    width: 100%;
+    padding: 0;
+  }
+  .category__block.active {
+    display: block !important;
+  }
+  .category__border {
+    display: none;
+  }
+  .title__actions {
+    display: flex;
+    align-items: center;
+  }
+  .title__actions div {
+    padding: 5px 0px;
+  }
+  .title__action {
+    margin-left: 10px;
+    display: block;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 20px;
+  }
+  .title__action.expense {
+    border: 1px solid #8e1010;
+    padding: 5px 10px;
+  }
+  .title__action.income {
+    border: 1px solid #558052;
+    padding: 5px 10px;
+  }
+}

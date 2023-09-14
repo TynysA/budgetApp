@@ -102,22 +102,6 @@
 .error__text.active {
   visibility: visible;
 }
-.form__btn button {
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 20px;
-  border-radius: 5px;
-  background-color: #afeeee;
-  border: none;
-}
-.form__btn button:hover {
-  transition: 0.3s all linear;
-  box-shadow: 2px 2px 5px #fc894d;
-}
-.form__btn button:active {
-  transform: scale(1.1);
-  transition: 0.3s all linear;
-}
 
 @media (max-width: 1000px) {
   .login__left {
