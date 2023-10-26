@@ -4,7 +4,6 @@ import "../../style/components/Blocks.css";
 import axiosInstance from "../../api";
 import { useSelector } from "react-redux";
 function Balance({amount}) {
-  // const username = useSelector((state) => state.username);
   const username = localStorage.getItem("username");
   return (
     <div className="balance">

@@ -112,7 +112,34 @@
 }
 @media (max-width: 600px) {
   .actions {
-    display: none;
+    position: absolute;
+    bottom: -1000px;
+    left: 0;
+    transition: 0.52s linear;
+    background: linear-gradient(#ffff, #d9effa);
+    border-radius: 10px;
+    width: 100%;
+    height: 80%;
+    padding: 40px 5px;
+  }
+  .actions.active {
+    bottom: 00%;
+    left: 0;
+  }
+  .action__tab {
+    padding: 10px 40px;
+    font-size: 22px;
+  }
+  .add__form input,
+  .add__category {
+    padding: 18px 12px;
+    font-size: 28px;
+  }
+  .add__btn {
+    width: 140px;
+    font-size: 26px;
+    padding: 15px 0px;
+    border-radius: 10px;
   }
 }
 @media (max-width: 390px) {

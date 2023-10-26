@@ -5,10 +5,6 @@
 .login__left {
   width: 50%;
   height: 100%;
-  /* background-image: url("../images/login__img.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; */
 }
 .login__left img {
   width: 100%;
@@ -61,7 +57,6 @@
 }
 .login__form {
   padding-bottom: 30px;
-  /* background-color: antiquewhite; */
   text-align: center;
 }
 .login__page input {
@@ -75,21 +70,14 @@
   padding: 15px 0px;
   padding-left: 10px;
 }
-.form__login {
-}
-
 .form__btn {
-  /* text-align: end; */
-  /* margin-right: 10%; */
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
 .error__text {
-  /* font-size: 22px; */
   visibility: hidden;
   width: fit-content;
-  /* margin-right: 15px; */
   background-color: #fff;
   padding: 10px 10px;
   color: red;
@@ -123,9 +111,5 @@
     width: 100%;
     justify-content: space-between;
     font-size: 16px;
-  }
-  .login__tab {
-    /* max-width: 100px;
-    overflow: hidden; */
   }
 }

@@ -45,6 +45,8 @@ button.standard:active {
 }
 .main__layout {
   height: 100vh;
+  overflow-y: hidden;
+  position: relative;
   background: linear-gradient(#ffff, #d9effa);
 }
 

@@ -109,6 +109,9 @@
   font-size: 22px;
   text-transform: none;
 }
+.footer__plus.close svg{
+  transform: rotate(45deg);
+}
 @media (max-width: 600px) {
   .header__actions {
     justify-content: flex-end;

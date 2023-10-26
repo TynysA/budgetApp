@@ -13,7 +13,6 @@ function UserCategory({ row, type }) {
       categoryname: row.value,
     });
     setDeleted(true);
-    //const res = await axiosInstance.delete(`/income/category/${row._id}`);
   };
   return (
     <div className={`list__item ${type} ${deleted ? "none" : ""}`}>

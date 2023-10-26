@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 function ModalUpload({ params, setModalUpload, setIsLoading }) {
   const dispatch = useDispatch();
-  //console.log(params);
   const [title, setTitle] = useState(params?.title);
   const [amount, setAmount] = useState(params?.amount);
   const [category, setCategory] = useState(params?.category[0]);
@@ -18,8 +17,6 @@ function ModalUpload({ params, setModalUpload, setIsLoading }) {
   const [arrCategories, setArrCategories] = useState([]);
   const handeleCategory = async () => {
     const res = await axiosInstance.get(`/${type}/category/all`);
-    // console.log("All categories");
-    // console.log(res.data);
     setArrCategories(res.data);
   };
   useEffect(() => {

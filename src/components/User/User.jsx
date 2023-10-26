@@ -38,8 +38,6 @@ function User({ setReset, propsHandele }) {
   };
   const addUserCategory = async (event) => {
     event.preventDefault();
-    // /income/category/edit/add
-    // categoryname
     const category = event.target.__category.value;
     console.log(category);
     if (!category) {

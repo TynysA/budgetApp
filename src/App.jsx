@@ -9,8 +9,6 @@ import HomePage from "./pages/HomePage";
 function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-
-  // Move the useNavigate hook here
   const navigate = useNavigate();
 
   async function isLogined() {

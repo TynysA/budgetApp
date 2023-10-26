@@ -33,9 +33,7 @@ function LoginPage() {
 
       const data = await response.json();
       const username = data.user.username;
-      const avatar = data?.user?.avatar;
       if (data.token) {
-        // setIsLoggedIn(true);
         dispatch({ type: "Login" });
         localStorage.setItem("username", username);
         localStorage.setItem("access_token", data.token);

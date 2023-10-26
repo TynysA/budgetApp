@@ -5,8 +5,22 @@ import "../../style/components/Blocks.css";
 import { CgProfile } from "react-icons/cg";
 import { TbMoneybag } from "react-icons/tb";
 function Footer() {
+  const [close, setClose] = useState(false);
   const handeleAddAction = (event) => {
-    console.log("add action");
+    const actions = document.querySelector(".actions");
+    if (actions === null) {
+      return;
+    }
+    const footer__plus = document.querySelector(".footer__plus");
+    console.log(footer__plus);
+    if (!actions.classList.contains("active")) {
+      footer__plus.classList.add("close");
+      setClose(true);
+    } else {
+      footer__plus.classList.remove("close");
+      setClose(false);
+    }
+    actions.classList.toggle("active");
   };
   return (
     <div className="footer">
@@ -21,7 +35,7 @@ function Footer() {
             <span>Budget</span>
           </Link>
           <div onClick={handeleAddAction} className="footer__plus">
-            <span>Add</span>
+            <span>{close ? "Close" : "Add"}</span>
             <AiOutlinePlusCircle />
           </div>
         </div>
